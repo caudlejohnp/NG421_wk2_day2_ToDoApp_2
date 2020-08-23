@@ -22,28 +22,4 @@ export class AppComponent implements OnInit {
       {title: 'Install Angular CLI', isDone: false}
     ]
   }
-  
-  addTodo(): void {
-    this.todoList.push({
-      title: this.todoTitle,
-      isDone: false
-    });
-  }
-
-  async deleteTodo(todo: any) {
-    const modal = this.modalService.open(ConfirmationModalComponent);
-    modal.componentInstance.modalInstance = modal;
-
-    let answer = 'no';
-    try {
-      answer = await modal.result;
-    } catch (error) {
-      console.log('Modal did not return confirmation to delete.')
-    }
-
-    if (answer === 'yes') {
-      const index = this.todoList.findIndex(todoItem => todoItem === todo);
-      this.todoList.splice(index, 1);
-    }
-  }
 }
