@@ -8,18 +8,9 @@ import { ConfirmationModalComponent } from './confirmation-modal/confirmation-mo
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  title = 'Todos';
-  todoList: any[] = [];
-  todoTitle: string;
-  todoId: number = 0;
-
+  
   constructor(private modalService: NgbModal) {
     
   }
-  ngOnInit() {
-    this.todoTitle = '';
-    this.todoList = [
-      {title: 'Install Angular CLI', isDone: false}
-    ]
-  }
+  ngOnInit() { }
 }

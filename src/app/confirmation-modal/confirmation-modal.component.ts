@@ -11,9 +11,7 @@ export class ConfirmationModalComponent implements OnInit {
   modalInstance: NgbModalRef;
   constructor() { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   close(): void {
     this.modalInstance.close('no');
