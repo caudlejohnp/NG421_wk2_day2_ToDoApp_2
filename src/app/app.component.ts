@@ -30,10 +30,20 @@ export class AppComponent implements OnInit {
     });
   }
 
-  deleteTodo(todo: any) {
+  async deleteTodo(todo: any) {
     const modal = this.modalService.open(ConfirmationModalComponent);
     modal.componentInstance.modalInstance = modal;
-    const index = this.todoList.findIndex(todoItem => todoItem === todo);
-    this.todoList.splice(index, 1);
+
+    let answer = 'no';
+    try {
+      answer = await modal.result;
+    } catch (error) {
+      console.log('Modal did not return confirmation to delete.')
+    }
+
+    if (answer === 'yes') {
+      const index = this.todoList.findIndex(todoItem => todoItem === todo);
+      this.todoList.splice(index, 1);
+    }
   }
 }
